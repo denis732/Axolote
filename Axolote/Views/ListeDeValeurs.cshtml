@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Axolote.Models.ListeDeValeurs>
+
+@{
+    ViewBag.Title = "ListeDeValeurs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ListeDeValeurs</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<asp:Button id="Button1"
+            Text="Submit"
+            OnClick="SubmitBtn_Click"
+            runat="server" />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Source)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Valeur)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AffichageAnglais)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AffichageFrancais)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Source)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valeur)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AffichageAnglais)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AffichageFrancais)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>
